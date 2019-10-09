@@ -27,5 +27,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "knex": "^0.19.5",
+    "pg": "^7.12.1"
   }
 }
