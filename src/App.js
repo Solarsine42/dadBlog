@@ -1,8 +1,8 @@
 import React from "react";
 import Topnav from "./components/Topnav";
-import BlogpostList from "./components/BlogpostList";
+import Bloghome from "./components/Bloghome";
 import { connect } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+// import { Route, Switch } from "react-router-dom";
 import { getUsers } from "./store/users/actions";
 import { getPosts } from "./store/posts/actions";
 import { getComments } from "./store/comments/actions";
@@ -22,6 +22,7 @@ class App extends React.Component {
         <main>
           <Topnav />
           <br />
+          <Bloghome />
           {/* <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/cars" component={Cars} />

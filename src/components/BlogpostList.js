@@ -1,19 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 import Blogpost from "./Blogpost";
 
 const BlogpostList = props => {
-  let listOfPosts = props.statuses.map(post => {
-    return <Blogpost key={post.id} status={post} />;
-  });
-  return <div>{listOfPosts}</div>;
+  const listOfPosts = props.posts.map((post, i) => (
+    <Blogpost key={i} post={post} />
+  ));
+  return <div className="container">{listOfPosts}</div>;
 };
 
-function mapStateToProps(state, props) {
+function mapStateToProps(state) {
   return {
     posts: state.posts.all
   };
 }
 
-export default withRouter(connect(mapStateToProps)(BlogpostList));
+export default connect(mapStateToProps)(BlogpostList);

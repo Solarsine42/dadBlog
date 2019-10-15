@@ -1,45 +1,25 @@
 import React from "react";
-// import StatusConvo from "../conversations/StatusConvo";
+// import RmvPost from "./RmvPost";
+// import EditPostModal from "./EditPostModal";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
-// import { Link } from "react-router-dom";
-// import Moment from "react-moment";
+import { Button, Card } from "react-bootstrap";
 
 const Blogpost = props => {
-  const post = props.posts.filter(post => post.id === props.status.post_id)[0];
-  if (post) {
-    return (
-      <div>
-        <p>Blogpost</p>
-        {/* <div className="card mb-3">
-          <div className="row">
-            <div className="col-2">
-              <img src={user.photo_url} className="card-img" alt="user" />
-            </div>
-            <div className="col-8">
-              <div className="card-body">
-                <h5 className="card-title">
-                  <Link to={`/profile/${user.id}`}>{user.name}</Link>
-                </h5>
-                <p className="card-text">{props.status.content}</p>
+  return (
+    <Card className="mb-3">
+      <Card.Header>{props.post.user_id}</Card.Header>
+      <Card.Body>
+        <Card.Title>{props.post.title}</Card.Title>
+        <Card.Text>{props.post.body}</Card.Text>
+        <Button variant="primary">Go somewhere</Button>
+      </Card.Body>
+    </Card>
+  );
+};
 
-                <p className="card-text">
-                  <small className="text-muted">Company:{user.company}</small>
-                </p>
-                <StatusConvo />
-              </div>
-            </div>
-            <div className="col-2">
-              <Moment format="MM/DD/YYYY HH:mm A">
-                {props.status.createdAt}
-              </Moment>
-            </div>
-          </div>
-        </div> */}
-      </div>
-    );
-  } else {
-    return "loading...";
-  }
+Blogpost.propTypes = {
+  post: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
